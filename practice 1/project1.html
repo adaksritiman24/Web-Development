@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: rgb(214, 248, 248);
+        }
+
+        .container2 {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .im1 img {
+            padding: 0px 0px;
+            height: 100px;
+            width: 100px;
+        }
+
+        .im1 {
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .box {
+            display: inline-block;
+            margin: 20px 45px;
+            border: 5px solid rgb(80, 14, 14);
+            border-radius: 20px;
+            background-color: rgb(214, 161, 170);
+            width: 389px;
+            height: 400px;
+            box-shadow: 10px 10px 10px grey;
+        }
+
+        .box:hover {
+            background-color: rgb(168, 123, 131);
+        }
+
+        .box h3 {
+            width: 100%;
+            padding-top: 0px;
+            text-align: center;
+            font-size: 22px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .box p {
+            margin: 10px 20px;
+            padding 13px 6px;
+            text-align: center;
+            font-family: cursive;
+            font-style: italic;
+        }
+
+        .services {
+            text-align: center;
+            margin-top: 44px;
+            margin-bottom: 0px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        section {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 0px;
+            padding: 50px 190px;
+            color: black;
+
+        }
+
+        section h1 {
+            font-size: 3rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: 0px;
+            padding: 30px;
+        }
+
+        section p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0px;
+            padding-bottom: 20px;
+            font-weight: bold;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 5px 15px;
+            padding: 0px 14px;
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .item {
+            padding: 12px 15px;
+            margin: 10px 20px;
+            list-style: none;
+        }
+
+        .navigation {
+            width: 100%;
+            margin: 0px;
+            background-color: black;
+            color: white;
+            position: fixed;
+            opacity: 0.7;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+        .logo img:hover {
+            padding: 2px 4px;
+        }        
+
+        .logo {
+            padding: 9px 12px;
+
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+        }
+
+        header::before {
+            background: url("proj1/top.jpg") no-repeat center center/cover;
+            content: '';
+            z-index: -1;
+            width: 100%;
+            height: 55%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0.6;
+            box-shadow: 0px 5px 13px rgb(100, 76, 76);
+        }
+
+        .order {
+            background-color: transparent;
+            color: black;
+            padding: 10px 35px;
+            border: 2px solid black;
+            font-weight: bold;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
+            margin-top: 40px;
+            border-radius: 25px;
+            width: 200px;
+        }
+
+        .order:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .order:active {
+            background-color: gray;
+            color: white;
+        }
+
+        .item a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .item a:hover {
+            color: yellow;
+        }
+
+        .container3 {
+            display: flex;
+            justify-content: centre;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .container3::after{
+            background: url('proj1/clients.jpg') no-repeat center center/cover;
+            display: flex;
+            content: '';
+            left:0px;
+            margin-bottom: 0px;
+            width:100%;
+            height:50%;
+            z-index : -1;
+            position: absolute;
+            opacity: 0.6;
+            box-shadow: 0px -2px 12px gray;
+        }
+        .container3 h1{
+            width: 100%;
+            margin-top: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            
+        }
+        .clients img{
+            width:100px;
+            height:100px;
+            margin:20px 55px;
+            margin-bottom: 40px;
+            padding: 0px 12px;
+        }
+        .clients{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+            
+        }
+        .container{
+            margin-top: 40px;
+            text-align: center;
+            background-color: rgb(4, 78, 47);
+            box-shadow: 0px -5px 13px black;
+            padding: 2px 3px;
+            font-size: 22px;
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-shadow: 3px 5px 8px black;
+        }
+        .formgrp{
+            margin: 4px 4px;
+            padding: 5px 3px;
+            font-size: 25px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: auto;
+            align-content: center;
+        }
+        .formgrp input{
+            margin: 4px 4px;
+            padding: 7px 12px;
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-radius: 15px;
+            border: 1px solid black;
+            color: black;
+            width: 550px;
+            text-align: center;
+            box-shadow: 2px 2px 13px black;
+        }
+        .formgrp input:hover{
+            box-shadow: 2px 6px 10px black;
+        }
+        .formgrp button{
+            padding: 12px 80px;
+            margin: 12px;
+            width: 300px;
+            border-radius: 50px;
+            border: 2px solid black;
+            font-size: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            box-shadow: 1px -1px 8px black;
+            background-color: gold;
+        }
+        .formgrp button:hover{
+            background-color: black;
+            color: yellow;
+        }
+        .formgrp button:active{
+            background-color: gray;
+        }
+        .formgrp a{
+            text-decoration: none;
+            color: rgb(161, 212, 20);
+            font-size: 14px;
+            font-weight: lighter;
+        }
+        .formgrp a:hover{
+            font-size: 16px;
+            color: chartreuse;
+        } 
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navigation">
+            <ul>
+                <div class="logo">
+                    <img src="proj1/pp.jpeg" alt="">
+                </div>
+                <li class="item">
+                    <a href="">Home</a>
+                </li>
+                <li class="item">
+                    <a href="">Services</a>
+                </li>
+                <li class="item">
+                    <a href="">About Us</a>
+                </li>
+                <li class="item">
+                    <a href="">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section>
+            <h1>Welcome to my Website</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, cum pariatur, ratione similique laudantium
+                quisquam aut enim, natus sint reiciendis quasi sunt. Modi, officiis, ipsum consequuntur porro
+                necessitatibus at voluptatibus veritatis consequatur excepturi facere cupiditate!</p>
+            <button class="order">
+                Order Now
+            </button>
+        </section>
+    </header>
+    <h1 class='services'>Our services</h1>
+    <div class="container2">
+        <div class="box">
+            <div class="im1">
+                <img src="proj1/order.png" alt="None">
+            </div>
+            <h3>Food Ordering</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae aperiam fugiat repellat vero
+                similique molestias voluptas velit et quod consequuntur est neque quam officia ducimus a, iste id magnam
+                quidem pariatur doloribus facilis. Corporis, vero soluta placeat sit perspiciatis atque.</p>
+        </div>
+        <div class="box">
+            <div class="im1">
+                <img src="proj1/cater.png" alt="None">
+            </div>
+            <h3>Catering</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod adipisci ex magni, enim quasi saepe dicta
+                qui iusto, animi praesentium obcaecati? Alias voluptate quis ut autem magni deleniti, error, amet,
+                placeat veniam eveniet velit mollitia aperiam repudiandae in maiores numquam?</p>
+        </div>
+        <div class="box">
+            <div class="im1">
+                <img src="proj1/delivery.png" alt="None">
+            </div>
+            <h3>Bulk Delivery</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum natus blanditiis esse non, unde maiores
+                excepturi velit ab et, accusamus odit commodi quos consequatur officia minima voluptates cupiditate
+                corporis, a sunt qui at repellat architecto consequuntur?</p>
+        </div>
+    </div>
+    <div class="container3">
+        <h1>Our Clients</h1>
+        <div class="clients">
+
+            <img src="proj1/apple.jpg" alt="">
+
+            <img src="proj1/skype.png" alt="">
+
+            <img src="proj1/microsoft.png" alt="">
+
+            <img src="proj1/techno.jpg" alt="">
+
+            <img src="proj1/hp.jpg" alt="">
+
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form action="">
+            <div class="formgrp"><input type="text" placeholder="Full Name"></div>
+            <div class="formgrp"><input type="text" placeholder="Address"></div>
+            <div class="formgrp"><input type="email" placeholder="Email"></div>
+            <div class="formgrp"><input type="number" placeholder="Ph. Number"></div>
+            <input type="checkbox" class="check">
+            <div class="formgrp"><a href="">Agree to Terms and Conditions</a> </div>
+            <div class="formgrp"><button class="submit">Submit</button></div>
+            
+        </form> 
+    </div>
+
+</body>
+
+</html>
