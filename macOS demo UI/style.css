@@ -1,0 +1,192 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: url("bg.jpg") no-repeat;
+    background-size: 100%;
+}
+
+
+#header{
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    padding-left: 5px;
+    background-color: rgba(231, 229, 229, 0.9);
+    box-shadow: rgb(41, 40, 40) 0px 1px 8px 1px;
+}
+#hitems{
+    display: block;
+}
+.hitem{
+    vertical-align: center;
+    display: inline;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+}
+.hitem a{
+    text-decoration:  none;
+    padding: 2px 8px;
+    color: black;
+}
+
+.hitem a:hover{
+    background-color: blue;
+    color: rgb(255, 255, 255);
+}
+.hitem a:hover #logo{
+    filter: invert();
+}
+#right-items{
+    display: inline;
+    float: right;
+    margin-right: 10px;
+}
+.wifi{
+    margin-top:2px;
+    height: 14px;
+    width: 14px;
+    padding: 0px 7px;
+}
+#time{
+    display: inline;
+}
+#logo-item{
+    margin-top: 0px;
+    padding: 0px 5px;
+}
+#logo {
+    height: 14px;
+    width: 13px;
+    margin-top: 1px;
+}
+#toolbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 20px;
+    z-index: 110;
+}
+#items{
+    display: flex;
+    background: rgba(255,255,255, 0.3);
+    border-radius: 14px;
+}
+.item{
+    border-radius: 14px;
+    padding: 5px;
+    list-style-type: none;
+    transition: all 0.15s ease;
+}
+.item img{
+    width: 60px;
+    height: 60px;
+}
+
+.item:hover{
+    background: rgba(255,255,255, 0.5);
+}
+
+.focus-background{
+    background: rgba(255,255,255, 0.5);
+}
+
+.page{
+    display: flex;
+    width: 100%;
+    position:  fixed;
+    justify-content: center;
+    bottom: -900px;
+    transition:all 0.4s ease-out; 
+}
+.blop{
+    display: flex;
+    width: 100%;
+    position:  fixed;
+    justify-content: center;
+    bottom: 100px;
+    height: 0vh;
+    z-index: -1;
+    /* visibility: hidden; */
+    transition:all 0.2s ease-out; 
+}
+#appstore img{
+    border-radius: 7px;
+    max-height: 78vh;
+
+}
+.page img{
+    border-radius: 7px;
+    
+}
+
+#safari img{
+    
+    height: 570px;
+    width: 750px;
+}
+#notes img{
+ 
+    height: 150px;
+    width: 340px;
+}
+#settings img{
+    border-radius: 7px;
+    max-height: 78vh;
+}
+
+#notbar{
+    display: inline;
+    position: fixed;
+    top: 25px;
+    right: -320px;
+    z-index: 100;
+    transition: all 0.4s ease-out;
+    opacity: 0.9;
+}
+#notbar img{
+    max-height: 98vh;
+    max-width: 100%;
+}
+
+/* //logo dd */
+#logo-item ul{
+    background-color: rgba(214, 213, 211,0.82);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    display: inline;
+    list-style: none;
+    display: none;
+    margin-top: 20px;
+    left: 5px;
+    width: 20vw;
+}
+#logo-item ul li{
+    padding-left: 1.4vw;
+    margin: 0.5vh, 0.2vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+#logo-item ul hr{
+    margin: 5px 0px;
+}
+#logo-item ul li button{
+    float: right;
+    margin-right: 1vw;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(155, 152, 152, 0.66);
+}
+#logo-item ul li p{
+    display: inline;
+}
+#logo-item ul li:hover{
+    color: rgb(244, 248, 248);
+    background-color: blue;
+}
