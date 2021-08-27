@@ -1,0 +1,46 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4">
+        <h4 class = 'text-center alert alert-warning'>Add New Student</h4>
+        <form action="" method="post" class='form-group'>
+            {% csrf_token %}
+            {{fm.as_p}}
+            <input type="submit" value="Add" class='btn btn-success'>
+        </form>
+    </div>
+    <div class="col-sm-7 offset-1">
+        <h4 class = 'text-center alert alert-dark'>Student Information</h4>
+        <table class = 'table table-striped table-hover table-responsive'>
+            <tr class= >
+                <th class = 'table-dark'>Id</th>
+                <th class = 'table-dark'>Name</th>
+                <th class = 'table-dark'>Email</th>
+                <th class = 'table-dark'>Password</th>
+                <th class = 'table-dark'>UPDATE</th>
+                <th class = 'table-dark'>DELETE</th>
+            </tr>
+            {% for student in stud %}
+            <tr class = 'table-info'>
+                <td><b><i>{{student.id}}</i></b></td>
+                <td>{{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.password}}</td>
+                <td>
+                    <form action="{% url 'update_data' student.id %}" method="GET">
+                        {% csrf_token %}
+                        <input type="submit" value='Update' class= 'btn btn-warning btn-sm'>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'delete_data' student.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value='Delete' class= 'btn btn-danger btn-sm'>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock content %}
