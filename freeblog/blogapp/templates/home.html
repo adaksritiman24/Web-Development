@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row mb-4" style="background-color: rgb(75, 75, 75);">
+        <header class = 'signupform'>
+            <h1 class="mt-1">Welcome to <span class = 'logo1'>Free</span><span class = 'logo2'>Blogger</span></h1>
+            <hr>
+            <p><b>The #1 free blogging website in India</b></p>
+            <p><h6 style="text-align: right;">
+                <label style="background-color: rgb(73, 73, 248); margin-right:6px; padding:4px; border-radius:5px; border: 1px solid white;">1M+ users</label>
+                <label style="background-color: rgb(73, 73, 248); margin-right:6px; padding:4px; border-radius:5px; border: 1px solid white;">Free</label>
+                <label style="background-color: rgb(73, 73, 248); margin-right:6px; padding:4px; border-radius:5px; border: 1px solid white;">Unlimited Uploads</label>
+                </h6>
+            </p>
+            <p class = 'flex-right border-b'>
+                <p class="flex-right">Join Us and start your journey</p>
+                <p class="flex-right"><a href="{% url 'signup' %}" class="btn btn-success">Sign Up</a></p>
+            </p>
+        </header>
+        <div class="col-sm-10 offset-1 signupform">
+            <h3 class="formal">Home Page</h3>
+        </div>
+        {% for blog in briefs %}
+        <div class="col-sm-10 offset-1 right-m signupform blog-style">
+            <h1>{{blog.title}}</h1>
+            <label class='comicfont'><i>by {{blog.author}}</i></label>
+            <hr>
+            <p>
+            {{blog.desc}}
+            <a style="float: right; margin: 5px 4px; margin-top: 10px" href="{% url 'read' blog.id %}" class = 'btn btn-warning btn-sm'>Read Blog</a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

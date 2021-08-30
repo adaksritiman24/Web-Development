@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Read Blog : {{blog.id}} -->
+<div class="container mb-4 signupform ">
+    <h1>Welcome to <span class = 'logo1'>Free</span><span class = 'logo2'>Blogger</span></h1>
+    <hr>
+    <div class="row">
+        <div class="col-sm-8 offset-2 right-m blog-style">
+            <h1>{{blog.title}}</h1>
+            <label class='comicfont'><i>by {{blog.author}}</i></label>
+            <hr>
+            {% for para in blog.desc %}
+            <p>{{para}}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-sm-8 offset-2 flex-right">
+        <a href="{% url 'home' %}" class ='btn btn-sm btn-warning'>Back</a>
+    </div>
+</div>
+{% endblock %}

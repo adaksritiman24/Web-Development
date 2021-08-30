@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div  class= 'form-group signupform mt-4 mb-4'>
+    <div class="row">
+        <div class="col-sm-4 offset-4">
+            <h2 class = 'text-center'>Login</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class = 'label'>{{f.label_tag}}</div>{{f}}
+                    <div>{{f.errors|striptags}}</div>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Submit" class= 'btn btn-success'>
+                {% if messages %}
+                {% for m in messages %}
+                    {{m}}
+                {% endfor %}
+                {% endif %}
+            </form>
+            <hr>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <label>Not Registered? </label><a href="{% url 'signup' %}" class = "btn btn-primary btn-sm">Sign Up</a>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
