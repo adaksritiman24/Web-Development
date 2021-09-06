@@ -14,6 +14,12 @@
             border: 2px solid black;
             border-radius: 5px;
         }
+        .login-style{
+            margin-top: 4em;
+            border-radius: 15px;
+            padding: 24px 27px;
+            background-color: rgba(0,0,0,0.2);
+        }
         .border-b{
             border-bottom: 4px solid ghostwhite;
         }
@@ -36,8 +42,9 @@
         .navstyle{
             background-color: rgb(56, 54, 54);
         }
-        body{
+        body, html{
             background-color: rgb(70, 69, 69);
+            height: 100%;
         }
         .signupform{
             color: whitesmoke;
@@ -72,6 +79,9 @@
             padding: 20px;
             box-shadow: 2px 2px 2px black;
         }
+        .hide{
+            display: none;
+        }
     </style>
 </head>
 
@@ -102,7 +112,7 @@
     <div style="height: 57px;">
 
     </div>
-    <div class="container">
+    <div class="container" >
         {% block content %}
         {% endblock %}
     </div>
@@ -110,6 +120,7 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>

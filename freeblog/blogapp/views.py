@@ -76,6 +76,8 @@ def edit_blog(request,id):
                 messages.warning( request, "Please enter all field")    
         else:
             blog = Blog.objects.get(pk = id)
+            if blog.aid != request.user.id:
+                return redirect('/dashboard/')
             fm = BlogForm(instance=blog)
         return render(request, 'editblog.html',{'id':id,'form':fm})
     else:
