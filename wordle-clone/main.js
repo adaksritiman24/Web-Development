@@ -4,7 +4,7 @@ var won = false;
 var wrongAnimation = "wordle-wrong  1s ease-in-out forwards";
 var wrongPosAnimation = "wordle-wrong-pos  1s ease-in-out forwards";
 var correctAnimation = "wordle-correct-pos  1s ease-in-out forwards";
-
+var winAnimation = "win-animation 1s forwards ease-in-out";
 
 var correctWord = ['V', 'I', 'T', 'A', 'L'];
 
@@ -37,6 +37,32 @@ const showAnimation =(animationList)=>{
     });
     
 }
+const showWinAnimation =()=>{
+    var firstRow = getRow(current);
+    console.log(firstRow.children.length);
+    
+    return new Promise((resolve, reject)=>{
+        for (let i = 0; i < firstRow.children.length; i++) {
+        
+            setTimeout(() => {
+                let element = firstRow.children[i];
+                element.classList.add("box-correct");
+                element.style.animation = winAnimation;
+                
+                if(i === firstRow.children.length-1){
+                    setTimeout(()=>{
+                        resolve(0);
+                    }, 600);
+                }
+                
+            }, i*200);
+            
+        }
+        
+    });
+    
+}
+
 
 const keyPressed=(key)=>{
     var row = getRow(current);
@@ -101,7 +127,10 @@ const enterButtonPressed = async()=>{
         currentRowIndex = 0;
         colorKeyBoard(animationList, currentWordList);
         if(won){
-            showWinBanner();
+            current--;
+            showWinAnimation().then((value)=>{
+              showWinBanner();
+            })
         }
     })
     
