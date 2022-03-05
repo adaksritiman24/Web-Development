@@ -9,3 +9,7 @@ https://simpleclock24sritiman.netlify.app
 
 https://mytodolist24sritiman.netlify.app/
 
+* Wordle clone:
+
+https://wordleclonebysritiman.netlify.app/
+
