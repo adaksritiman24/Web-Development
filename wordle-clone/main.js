@@ -6,7 +6,38 @@ var wrongPosAnimation = "wordle-wrong-pos  1s ease-in-out forwards";
 var correctAnimation = "wordle-correct-pos  1s ease-in-out forwards";
 var winAnimation = "win-animation 1s forwards ease-in-out";
 
-var correctWord = ['V', 'I', 'T', 'A', 'L'];
+words = [
+    ['K','I','T','E','S'],
+    ['R','I','G','H','T'],
+    ['S','E','V','E','N'],
+    ['F','L','O','U','R'],
+    ['B','O','O','K','S'],
+    ['S','H','E','L','L'],
+    ['L','I','G','H','T'],
+    ['I','N','D','I','A'],
+    ['C','H','I','N','A'],
+    ['S','I','E','G','E'],
+    ['V','I','T','A','L'],
+    ['Z','E','B','R','A'],
+    ['Y','E','M','E','N'],
+    ['N','I','G','H','T'],
+    ['M','I','G','H','T'],
+    ['L','A','T','E','R'],
+    ['H','A','U','N','T'],
+    ['G','H','O','S','T'],
+    ['G','I','R','L','S'],
+    ['H','O','U','S','E'],
+    ['P','U','R','S','E'],
+    ['P','A','I','N','T'],
+    ['X','E','R','O','X'],
+    ['M','I','X','E','R'],
+    ['M','U','S','I','C'],
+    ['Q','U','E','E','N']
+]
+
+var correctWord = words[parseInt(Math.random()*words.length)]
+
+console.log(correctWord);
 
 function getRow(rowNumber){
     return document.getElementById('row-' + rowNumber);
@@ -52,7 +83,7 @@ const showWinAnimation =()=>{
                 if(i === firstRow.children.length-1){
                     setTimeout(()=>{
                         resolve(0);
-                    }, 600);
+                    }, 900);
                 }
                 
             }, i*200);
@@ -132,6 +163,9 @@ const enterButtonPressed = async()=>{
               showWinBanner();
             })
         }
+        else if(current === 7){
+            showLostBanner();
+        }
     })
     
 
@@ -144,7 +178,7 @@ const colorKeyBoard = (animationList, currentWordList)=>{
 
     for (let i = 0; i < currentWordList.length ; i++) {
         let key = keys.filter((key)=> key.innerText === currentWordList[i])[0];
-        console.log(key);
+
         if(animationList[i] === correctAnimation){
             key.style.backgroundColor = "green";
         }
@@ -169,6 +203,27 @@ const showWinBanner=()=>{
 function closeWinBanner(){
     document.getElementsByTagName('body')[0].removeChild(
         document.getElementById('win')
+    )
+   
+}
+
+const showLostBanner=()=>{
+    let lostBanner = document.createElement('div');
+    lostBanner.id = 'lost'
+    let correctConstructedWord = correctWord.join("");
+    lostBanner.innerHTML = `
+        <p>You Lost!</p>
+        <p>The correct word was '${correctConstructedWord}'</p>
+        <button onclick='closeLostBanner()'> Close </button>
+    `;
+    lostBanner.classList.add('winbanner');
+    document.getElementsByTagName('body')[0].appendChild(lostBanner);
+
+}
+
+function closeLostBanner(){
+    document.getElementsByTagName('body')[0].removeChild(
+        document.getElementById('lost')
     )
    
 }

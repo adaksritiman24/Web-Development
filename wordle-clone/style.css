@@ -72,13 +72,11 @@ body{
     cursor: pointer;
     margin: 3px;
     padding: 10px;
-    font-size: 25px;
+    font-size: 2vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .keyrow  div:not(.acc){
-    height: 50px;
-    width: 50px;
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -154,13 +152,13 @@ body{
         transform: translateY(0px);
     }
     25%{
-        transform: translateY(-5px);
+        transform: translateY(-7px);
     }
     60%{
         transform: translateY(0px);
     }
     85%{
-        transform: translateY(-1px);
+        transform: translateY(-2px);
     }
     100%{
         transform: translateY(0px);
