@@ -1,11 +1,11 @@
 var current = 1;
 var currentRowIndex = 0;
 var won = false;
-var wrongAnimation = "wordle-wrong  1s ease-in-out forwards";
-var wrongPosAnimation = "wordle-wrong-pos  1s ease-in-out forwards";
-var correctAnimation = "wordle-correct-pos  1s ease-in-out forwards";
-var winAnimation = "win-animation 1s forwards ease-in-out";
-
+var wrongAnimation = "wordle-wrong  0.6s ease-in-out forwards";
+var wrongPosAnimation = "wordle-wrong-pos  0.6s ease-in-out forwards";
+var correctAnimation = "wordle-correct-pos  0.6s ease-in-out forwards";
+var winAnimation = "win-animation 0.4s forwards ease-in-out";
+var disableKeys = false;
 words = [
     ['K','I','T','E','S'],
     ['R','I','G','H','T'],
@@ -44,6 +44,7 @@ function getRow(rowNumber){
 }
 
 const showAnimation =(animationList)=>{
+    disableKeys = true
     var firstRow = getRow(current);
     console.log(firstRow.children.length);
     
@@ -57,11 +58,12 @@ const showAnimation =(animationList)=>{
                 
                 if(i === firstRow.children.length-1){
                     setTimeout(()=>{
+                        disableKeys = false
                         resolve(0);
-                    }, 1000);
+                    }, 800);
                 }
                 
-            }, i*500);
+            }, i*400);
             
         }
         
@@ -83,10 +85,10 @@ const showWinAnimation =()=>{
                 if(i === firstRow.children.length-1){
                     setTimeout(()=>{
                         resolve(0);
-                    }, 900);
+                    }, 600);
                 }
                 
-            }, i*200);
+            }, i*100);
             
         }
         
@@ -97,13 +99,14 @@ const showWinAnimation =()=>{
 
 const keyPressed=(key)=>{
     var row = getRow(current);
-    if(currentRowIndex < 5)
+    if(currentRowIndex < 5 && !disableKeys)
         row.children[currentRowIndex++].innerText = key;
 }
 
 const deleteBox=()=>{
     var row = getRow(current);
-    if(currentRowIndex > 0){
+
+    if(currentRowIndex > 0 && !disableKeys){
         row.children[currentRowIndex-1].innerText = "";
         currentRowIndex --;
     }
@@ -144,7 +147,7 @@ const validateWord=(guessedWord)=>{
 
 const enterButtonPressed = async()=>{
 
-    if(currentRowIndex !=5) return;
+    if(currentRowIndex !=5 || disableKeys) return;
 
     var row = getRow(current);
     
